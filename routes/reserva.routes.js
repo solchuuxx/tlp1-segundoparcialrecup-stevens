@@ -7,6 +7,7 @@ const {
     renderFormNewReserva,
     renderFormEditarReserva,
     obtenerReservas,
+    obtenerReserva,
     crearReserva,
     eliminarReserva,
     actualizarReserva
@@ -18,35 +19,30 @@ const {
 // ==========================================
 
 // Obtener todas las reservas
-router.get('/', (req, res) => {
-	res.render('listado-reserva')
-});
+router.get('/', renderListaReservas);
 
 // Formulario para crear una reserva
-router.get('/crear-reserva', (req, res) => {
-	res.render('nueva-reserva');
-});
+router.get('/crear-reserva', renderFormNewReserva);
+
 // Formulario para actualizar una reserva
-router.get('/actualizar-reserva/:id', (req, res) => {
-	const { id } = req.params;
-	res.render('editar-reserva', { id })
-});
+router.get('/actualizar-reserva/:id', renderFormEditarReserva)
 
 // ==========================================
 //         Rutas para CRUD de reservas
 // ==========================================
 
 // Obtener todas las reservas
-router.get('/api/',);
- 
-// Crear una reserva
-router.post('/api/',);
- 
-// Actualizar una reserva
-router.put('/api/:id',);
- 
-// Eliminar una reserva de forma lógica
-router.delete('/api/:id',);
+router.get('/api', obtenerReservas);
 
- 
- module.exports = router;
+router.get('/api/:id', obtenerReserva);
+// Crear una reserva
+router.post('/api', crearReserva);
+
+// Actualizar una reserva
+router.put('/api/:id', actualizarReserva);
+
+// Eliminar una reserva de forma lógica
+router.delete('/api/:id', eliminarReserva);
+
+
+module.exports = router;
