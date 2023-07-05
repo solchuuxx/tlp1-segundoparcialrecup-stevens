@@ -12,6 +12,7 @@ const Reserva = sequelize.define('Reserva', {
         type: DataTypes.STRING(100),
         allowNull: false,
         unique: true,
+        defaultValue: new Date().getTime()
     },
     nombre: {
         type: DataTypes.STRING(100),
@@ -22,11 +23,11 @@ const Reserva = sequelize.define('Reserva', {
         allowNull: false
     },
     fecha_salida_vuelo: {
-        type: DataTypes.DATETIME,
+        type: DataTypes.DATE,
         allowNull: false
     },
     fecha_actual: {
-        type: DataTypes.DATETIME,
+        type: DataTypes.DATE,
         allowNull: false,
     },
     asiento: {
@@ -42,17 +43,17 @@ const Reserva = sequelize.define('Reserva', {
         allowNull: false
     },
     createdAt: {
-        type: DataTypes.DATETIME,
+        type: DataTypes.DATE,
         allowNull: false,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     },
     updatedAt: {
-        type: DataTypes.DATETIME,
+        type: DataTypes.DATE,
         allowNull: false,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     },
     deletedAt: {
-        type: DataTypes.DATETIME,
+        type: DataTypes.DATE,
         allowNull: true
     }
 }, {
@@ -63,8 +64,8 @@ const Reserva = sequelize.define('Reserva', {
 });
 
 // Se crea la tabla si es que no existe
-Reserva.sync({ force: false }).then(() => {
-    console.log('Tabla de Reservas creada');
-});
+//Reserva.sync({ force: false }).then(() => {
+    //console.log('Tabla de Reservas creada');
+//});
 
 module.exports = Reserva;
