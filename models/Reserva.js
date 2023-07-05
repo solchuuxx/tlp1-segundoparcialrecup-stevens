@@ -22,15 +22,15 @@ const Reserva = sequelize.define('Reserva', {
         allowNull: false
     },
     fecha_salida_vuelo: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATETIME,
         allowNull: false
     },
     fecha_actual: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATETIME,
         allowNull: false,
     },
     asiento: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     origen: {
@@ -42,17 +42,17 @@ const Reserva = sequelize.define('Reserva', {
         allowNull: false
     },
     createdAt: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATETIME,
         allowNull: false,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     },
     updatedAt: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATETIME,
         allowNull: false,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     },
     deletedAt: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATETIME,
         allowNull: true
     }
 }, {
